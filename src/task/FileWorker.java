@@ -9,7 +9,7 @@ public class FileWorker {
 
         try {
             //проверяем, что если файл не существует то создаем его
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
 
@@ -24,10 +24,11 @@ public class FileWorker {
                 //Иначе файл не запишется
                 out.close();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
     public static String read(String fileName) throws FileNotFoundException {
         //Этот спец. объект для построения строки
         StringBuilder sb = new StringBuilder();
@@ -37,7 +38,7 @@ public class FileWorker {
 
         try {
             //Объект для чтения файла в буфер
-            BufferedReader in = new BufferedReader(new FileReader( file.getAbsoluteFile()));
+            BufferedReader in = new BufferedReader(new FileReader(file.getAbsoluteFile()));
 
             try {
                 //В цикле построчно считываем файл
@@ -52,7 +53,7 @@ public class FileWorker {
                 //Также не забываем закрыть файл
                 in.close();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
