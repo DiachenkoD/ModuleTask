@@ -7,11 +7,11 @@ public class Main {
 
         System.out.println("\t\t\tМеню"+'\n'+"1.Неаполитана");
 
-        StreetMap creater = new StreetMap();
-        creater.adreser();
+        StreetMap creator = new StreetMap();
+        creator.adreser();
         Runners runners = new Runners();
         Thread runner = new Thread(runners);
-        runner.run();
+        runner.start();
 
 
     }
