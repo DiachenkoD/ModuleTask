@@ -10,7 +10,7 @@ public class StreetMap {
     private int[][] distances;
     private ArrayList<String> streetsNumbers = new ArrayList<>();
     private int courierCount;
-    private String startPoint;
+    private int startPoint;
     private int pathCount;
 
     public int getPathCount() {
@@ -36,12 +36,12 @@ public class StreetMap {
                 }
                 case 2: {
                     maxStr[i] = maxStr[i].replace("\n", "");
-                    startPoint = maxStr[i];
+                    startPoint = superIntParser(maxStr[i]);
                     break;
                 }
                 case 3: {
                     maxStr[i] = maxStr[i].replace("\n", "");
-                    courierCount = Integer.parseInt(maxStr[i]);
+                    courierCount = superIntParser(maxStr[i]);
                     break;
                 }
             }
@@ -125,11 +125,11 @@ public class StreetMap {
         this.courierCount = courierCount;
     }
 
-    public String getStartPoint() {
+    public int getStartPoint() {
         return startPoint;
     }
 
-    public void setStartPoint(String startPoint) {
+    public void setStartPoint(int startPoint) {
         this.startPoint = startPoint;
     }
 }

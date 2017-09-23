@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 import static java.lang.Math.min;
 import static java.util.Arrays.fill;
 
-public class DejkstraAlgorithm {
+public class DijkstraAlgorithm {
 
     StreetMap streetMap = new StreetMap();
 
@@ -18,7 +18,7 @@ public class DejkstraAlgorithm {
         private int vNum ; // количество вершин
         private int[][] graph ; // матрица смежности
 
-    public DejkstraAlgorithm(int INF, int vNum, int[][] graph) {
+    public DijkstraAlgorithm(int INF, int vNum, int[][] graph) {
         this.INF = INF;
         this.vNum = vNum;
         this.graph = graph;
