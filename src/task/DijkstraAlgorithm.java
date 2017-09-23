@@ -10,15 +10,21 @@ import java.util.StringTokenizer;
 import static java.lang.Math.min;
 import static java.util.Arrays.fill;
 
-public class DeicstraAlgorithm {
+public class DejkstraAlgorithm {
 
     StreetMap streetMap = new StreetMap();
 
-    int INF = Integer.MAX_VALUE / 2; // "Бесконечность"
-     int vNum = streetMap.getArr().size(); // количество вершин
-     int[][] graph = streetMap.getDistances(); // матрица смежности
+        private int INF = Integer.MAX_VALUE / 2; // "Бесконечность"
+        private int vNum ; // количество вершин
+        private int[][] graph ; // матрица смежности
 
-             void dijkstra(int start) {
+    public DejkstraAlgorithm(int INF, int vNum, int[][] graph) {
+        this.INF = INF;
+        this.vNum = vNum;
+        this.graph = graph;
+    }
+
+    void dijkstra(int start) {
              boolean[] used = new boolean [vNum]; // массив пометок
                  int[] dist = new int [vNum]; // массив расстояния. dist[v] = минимальное_расстояние(start, v)
 
