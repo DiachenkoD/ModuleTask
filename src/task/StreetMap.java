@@ -57,10 +57,12 @@ public class StreetMap {
                     break;
                 }
                 case 2: {
+                    maxStr[i] = maxStr[i].replace("\n","");
                     startPoint = maxStr[i];
                     break;
                 }
                 case 3: {
+                    maxStr[i] = maxStr[i].replace("\n","");
                     courierCount = Integer.parseInt(maxStr[i]);
                     break;
                 }
@@ -70,14 +72,14 @@ public class StreetMap {
 
     private Map<String, int[]> trueAddressed(String str) {
         String[] array = {"", ""};
-        int[] array1 = new int[2];
         Map<String, int[]> arrer = new HashMap<>();
-        String[] arr = str.split("z");
+        String[] arr = str.split("\n");
         String[] tempStr = {"", ""};
         for (String strop : arr
                 ) {
             tempStr = strop.split("p");
-            array = tempStr[1].split(" \n");
+            array = tempStr[1].split(" ");
+            int[] array1 = new int[2];
             array1[0] = Integer.parseInt(array[0]);
             array1[1] = Integer.parseInt(array[1]);
             arrer.put(tempStr[0], array1);
@@ -88,12 +90,12 @@ public class StreetMap {
 
     private Map<String, Integer> distance(String str) {
 
-        String[] sstr = str.split("i");
+        String[] sstr = str.split("\n");
         Map<String, Integer> distnter = new HashMap<>();
         for (String sss : sstr
                 ) {
             String[] gather = sss.split("g");
-            distnter.put(sss.replace("g", " "), vectorLooker(arr.get(gather[0]), arr.get(gather[0])));
+            distnter.put(sss.replace("g", " "), vectorLooker(arr.get(gather[1]), arr.get(gather[0])));
         }
 
 

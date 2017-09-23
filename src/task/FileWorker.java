@@ -38,13 +38,16 @@ public class FileWorker {
         try {
             //Объект для чтения файла в буфер
             BufferedReader in = new BufferedReader(new FileReader( file.getAbsoluteFile()));
+
             try {
                 //В цикле построчно считываем файл
                 String s;
                 while ((s = in.readLine()) != null) {
                     sb.append(s);
                     sb.append("\n");
+
                 }
+                sb.deleteCharAt(0);
             } finally {
                 //Также не забываем закрыть файл
                 in.close();
