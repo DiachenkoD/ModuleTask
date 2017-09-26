@@ -69,12 +69,14 @@ public class StreetMap {
 
     private int[][] distance(String str) {
         String[] arr = str.split("[\n ]");
-        int[][] arr1 = new int[arr.length / 2][arr.length / 2];
+        int[][] arr1 = new int[this.arr.size()][this.arr.size()];
         pathCount = arr1.length;
-        for (int i = 0; i < arr.length; i += 2) {
-            arr1[superIntParser(arr[i])][superIntParser(arr[i + 1])] = vectorLooker(
-                    this.arr.get(streetsNumbers.get(superIntParser(arr[i]) - 1)),
-                    this.arr.get(streetsNumbers.get(superIntParser(arr[i + 1]) - 1)));
+
+        for (int j = 0; j < arr.length; j += 2) {
+            arr1[superIntParser(arr[j]) - 1][superIntParser(arr[j + 1]) - 1] = vectorLooker(
+                    this.arr.get(streetsNumbers.get(superIntParser(arr[j]) - 1)),
+                    this.arr.get(streetsNumbers.get(superIntParser(arr[j + 1]) - 1)));
+            arr1[superIntParser(arr[j+1]) - 1][superIntParser(arr[j]) - 1] = arr1[superIntParser(arr[j]) - 1][superIntParser(arr[j + 1]) - 1];
         }
 
 
@@ -88,9 +90,7 @@ public class StreetMap {
     }
 
     private int superIntParser(String str) {
-        int otparshen = 0;
-        otparshen = Integer.parseInt(str);
-        return otparshen;
+        return Integer.parseInt(str);
     }
 
     public Map<String, int[]> getArr() {
