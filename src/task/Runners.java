@@ -13,7 +13,7 @@ public class Runners implements Runnable {
 
     @Override
     public void run() {
-
+        System.out.println("Курьер будет ехать к Вам " + deliveryTime*5 + " минут");
         try {
             sleep(deliveryTime*5000);
         } catch (InterruptedException e) {

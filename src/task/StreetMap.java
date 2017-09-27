@@ -12,6 +12,7 @@ public class StreetMap {
     private int courierCount;
     private int startPoint;
     private int pathCount;
+    final String DIVIDER = "/";
 
     public int getPathCount() {
         return pathCount;
@@ -23,7 +24,7 @@ public class StreetMap {
 
     public void adreser() throws FileNotFoundException {
 
-        String[] maxStr = FileWorker.read("pizza.txt").split("/");
+        String[] maxStr = FileWorker.read("pizza.txt").split(DIVIDER);
         for (int i = 0; i < maxStr.length; i++) {
             switch (i) {
                 case 0: {
@@ -49,10 +50,10 @@ public class StreetMap {
     }
 
     private Map<String, int[]> trueAddressed(String str) {
-        String[] array = {"", ""};
+        String[] array;
         Map<String, int[]> arrer = new HashMap<>();
         String[] arr = str.split("\n");
-        String[] tempStr = {"", ""};
+        String[] tempStr;
         for (String strop :
                 arr) {
             tempStr = strop.split("p");
@@ -76,7 +77,7 @@ public class StreetMap {
             arr1[superIntParser(arr[j]) - 1][superIntParser(arr[j + 1]) - 1] = vectorLooker(
                     this.arr.get(streetsNumbers.get(superIntParser(arr[j]) - 1)),
                     this.arr.get(streetsNumbers.get(superIntParser(arr[j + 1]) - 1)));
-            arr1[superIntParser(arr[j+1]) - 1][superIntParser(arr[j]) - 1] = arr1[superIntParser(arr[j]) - 1][superIntParser(arr[j + 1]) - 1];
+            arr1[superIntParser(arr[j + 1]) - 1][superIntParser(arr[j]) - 1] = arr1[superIntParser(arr[j]) - 1][superIntParser(arr[j + 1]) - 1];
         }
 
 
